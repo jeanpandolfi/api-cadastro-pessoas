@@ -1,5 +1,6 @@
 package com.jeanpandolfi.cadastros.pessoa;
 
+import com.jeanpandolfi.cadastros.validators.UniqueValue;
 import org.hibernate.validator.constraints.br.CPF;
 
 import javax.validation.constraints.Email;
@@ -15,10 +16,12 @@ public class NovaPessoaRequest {
 
     @NotBlank
     @Email
+    @UniqueValue(fieldName = "email")
     private String email;
 
     @NotBlank
     @CPF
+    @UniqueValue(fieldName = "cpf")
     private String cpf;
 
     @NotNull
